@@ -1,2 +1,10 @@
 
 .idea
+# Archivos generados por Gradle y Serenity
+.gradle/
+build/
+target/
+
+# Configuracion local de los editores
+.vscode/
+*.iml
