@@ -6,12 +6,12 @@ Feature: Registro de usuarios en Buggy Cars Rating
   Para poder seleccionar y comentar un auto.
 
   Background:
-    Given que Jhon está en la página de registro
+    Given que Jhon esta en la pagina de registro
 
   @HappyPath
-  Scenario: Registro exitoso con datos válidos
-    When se registra con datos válidos
-    Then debería ver el mensaje "Registration is successfull"
+  Scenario: Registro exitoso con datos validos
+    When se registra con datos validos
+    Then deberia ver el mensaje "Registration is successful"
 
   @Alterno
   Scenario: Registro con un nombre de usuario ya existente
@@ -20,9 +20,9 @@ Feature: Registro de usuarios en Buggy Cars Rating
     Then deberia ver el mensaje "UsernameExistsException: User already exists"
 
   @Limite
-  Scenario Outline: Contraseña que no cumple la política de seguridad
-    When intenta registrarse con la contraseña "<contrasena>"
-    Then debería ver un error que contenga "<mensaje>"
+  Scenario Outline: Contrasena que no cumple la politica de seguridad
+    When intenta registrarse con la contrasena "<contrasena>"
+    Then deberia ver un error que contenga "<mensaje>"
 
     Examples:
 
@@ -32,6 +32,6 @@ Feature: Registro de usuarios en Buggy Cars Rating
       | Password12 | Password must have symbol characters     |
 
   @Alterno
-  Scenario: Confirmación de contraseña que no coincide
-      When diligencia el formulario con una confirmación de contraseña distinta
-      Then el boton de registro debería estar deshabilitado
+  Scenario: Confirmacion de contrasena que no coincide
+      When diligencia el formulario con una confirmacion de contrasena distinta
+      Then el boton de registro deberia estar deshabilitado
