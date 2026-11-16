@@ -1,24 +1,24 @@
 
 @Autenticacion
-Feature: Inicio de sesión
+Feature: Inicio de sesion
   Como usuario registrado
   Quiero autenticarme
-  Para acceder a las funciones de votación
+  Para acceder a las funciones de votacion
 
   Background:
     Given que Jhon tiene una cuenta registrada
 
   @HappyPath
-  Scenario: Inicio de sesión exitoso
-    When inicia sesión con sus credenciales
-    Then debería ver el saludo con su nombre
+  Scenario: Inicio de sesion exitoso
+    When inicia sesion con sus credenciales
+    Then deberia ver el saludo con su nombre
 
   @Alterno
-  Scenario Outline: Inicio de sesión fallido
-    When inicia sesión con <tipo de credencia>
-    Then debería ver el mensaje "Invalid username/password"
+  Scenario Outline: Inicio de sesion fallido
+    When inicia sesion con <tipo de credencial>
+    Then deberia ver el mensaje "Invalid username/password"
 
     Examples:
       | tipo de credencial      |
-      | una contraseña errónea  |
+      | una contrasena erronea  |
       | un usuario inexistente  |
