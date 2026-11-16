@@ -5,9 +5,9 @@ Feature: Flujo completo de un nuevo usuario
   Para validar el recorrido principal de la plataforma
 
   @HappyPath
-  Scenario: Nuevo usuario se registra, inicia sesión y comenta un auto
-    Given que Sebastián se registra con datos válidos
-    And inicia sesión con la cuenta recién creada
-    When selecciona el modelo más popular
+  Scenario: Nuevo usuario se registra, inicia sesion y comenta un auto
+    Given que Sebastian se registra con datos validos
+    And inicia sesion con la cuenta recien creada
+    When selecciona el modelo mas popular
     And vota dejando un comentario
-    Then su comentario debería aparecer registrado con su nombre como autor
+    Then su comentario deberia aparecer registrado con su nombre como autor
