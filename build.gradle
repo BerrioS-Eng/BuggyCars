@@ -61,5 +61,9 @@ tasks.named('test') {
     // System configs
     // Pasa la pausa entre pasos (-Dstep.pause=ms) a la ejecución de las pruebas
     systemProperty 'step.pause', System.getProperty('step.pause', '2000')
+    // Permite correr solo algunos escenarios: -Dcucumber.filter.tags="@Votacion"
+    if (System.getProperty('cucumber.filter.tags')) {
+        systemProperty 'cucumber.filter.tags', System.getProperty('cucumber.filter.tags')
+    }
 
 }
