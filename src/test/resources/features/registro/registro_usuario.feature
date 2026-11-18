@@ -25,11 +25,11 @@ Feature: Registro de usuarios en Buggy Cars Rating
     Then deberia ver un error que contenga "<mensaje>"
 
     Examples:
-
-      | contrasena | mensaje                                  |
-      | Ab1!       | Password not long enough                 |
-      | password1! | Password must have uppercase characters  |
-      | Password12 | Password must have symbol characters     |
+      | contrasena | mensaje                                 |
+      | Ab1!       | minimum field size of 6                 |
+      | Ab1!xy     | Password not long enough                |
+      | password1! | Password must have uppercase characters |
+      | Password12 | Password must have symbol characters    |
 
   @Alterno
   Scenario: Confirmacion de contrasena que no coincide
