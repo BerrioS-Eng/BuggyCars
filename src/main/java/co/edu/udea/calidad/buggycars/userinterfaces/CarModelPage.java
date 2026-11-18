@@ -25,6 +25,13 @@ public final class CarModelPage {
             .located(By.xpath("//p[@class='card-text' and normalize-space()='" + VOTE_CONFIRMATION_TEXT + "']"));
 
     /**
+     * Celda "Comment" cuyo texto es exactamente el indicado.
+     * Uso: {@code COMMENT_TEXT.of("texto del comentario")}.
+     */
+    public static final Target COMMENT_TEXT = Target.the("comment '{0}'")
+            .locatedBy("//table[contains(@class,'table')]//tr/td[3][normalize-space()='{0}']");
+
+    /**
      * Celda "Author" de la fila cuyo comentario es exactamente el texto
      * indicado. Uso: {@code COMMENT_AUTHOR.of("texto del comentario")}.
      */

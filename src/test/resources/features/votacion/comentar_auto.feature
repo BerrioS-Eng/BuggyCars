@@ -10,7 +10,17 @@ Feature: Votar y comentar un auto
     And selecciona el modelo mas popular
     When vota dejando un comentario
     Then deberia ver el mensaje "Thank you for your vote!"
-    And su comentario deberia aparecer registrado con su nombre como autor
+    And su comentario deberia aparecer en la lista de comentarios
+
+  # Falla por un defecto del sitio: la columna Author siempre esta vacia
+  # (el servidor devuelve el autor vacio en todos los comentarios).
+  # Para excluirlo: -Dcucumber.filter.tags="not @Defecto"
+  @Defecto
+  Scenario: El comentario muestra el nombre de su autor
+    Given que Sebastian inicio sesion con una cuenta nueva
+    And selecciona el modelo mas popular
+    When vota dejando un comentario
+    Then su comentario deberia mostrar su nombre como autor
 
   @Limite
   Scenario: Votar sin escribir comentario
