@@ -57,6 +57,12 @@ dependencies {
 
 }
 
+// Los archivos fuente están en UTF-8. Sin esto, en Windows Java los lee como
+// windows-1252 y falla con tildes o ñ en el código.
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
 tasks.named('test') {
     // System configs
     // Pasa la pausa entre pasos (-Dstep.pause=ms) a la ejecución de las pruebas

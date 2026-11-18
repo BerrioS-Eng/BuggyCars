@@ -10,4 +10,5 @@ Feature: Flujo completo de un nuevo usuario
     And inicia sesion con la cuenta recien creada
     When selecciona el modelo mas popular
     And vota dejando un comentario
-    Then su comentario deberia aparecer registrado con su nombre como autor
+    Then deberia ver el mensaje "Thank you for your vote!"
+    And su comentario deberia aparecer en la lista de comentarios
