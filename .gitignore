@@ -3,8 +3,12 @@
 # Archivos generados por Gradle y Serenity
 .gradle/
 build/
+bin/
 target/
 
 # Configuracion local de los editores
 .vscode/
 *.iml
+
+# Cuenta temporal de Buggy creada a mano (no subir credenciales)
+cuenta.local.properties
