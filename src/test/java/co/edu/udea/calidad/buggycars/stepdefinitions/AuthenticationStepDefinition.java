@@ -4,8 +4,8 @@ import co.edu.udea.calidad.buggycars.interactions.FillLoginForm;
 import co.edu.udea.calidad.buggycars.models.User;
 import co.edu.udea.calidad.buggycars.tasks.LogIn;
 import co.edu.udea.calidad.buggycars.tasks.OpenTheBrowser;
+import co.edu.udea.calidad.buggycars.tasks.Register;
 import co.edu.udea.calidad.buggycars.utils.MemoryKeys;
-import co.edu.udea.calidad.buggycars.utils.TestAccounts;
 import co.edu.udea.calidad.buggycars.utils.UserFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -44,12 +44,14 @@ public class AuthenticationStepDefinition {
 
     @Given("que Jhon tiene una cuenta registrada")
     public void queJhonTieneUnaCuentaRegistrada() {
-        // TEMPORAL: mientras no exista el registro automatizado se usa una
-        // cuenta creada a mano (variables BUGGY_* o cuenta.local.properties).
-        User user = TestAccounts.preexistingAccount();
+        // Cuenta nueva en cada ejecución, registrada con la tarea Register:
+        // no depende de cuentas creadas a mano ni de archivos locales.
+        User user = UserFactory.aNewUserNamed(ACTOR_NAME);
         Actor actor = theActorCalled(ACTOR_NAME);
         actor.remember(MemoryKeys.USER, user);
-        actor.attemptsTo(OpenTheBrowser.onTheHomePage());
+        actor.attemptsTo(
+                Register.with(user),
+                OpenTheBrowser.onTheHomePage());
         ensureLoggedOut(actor);
     }
 
